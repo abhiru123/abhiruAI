@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Abhiru Ai</title>
+
+  <!-- 🔹 Favicon for browser tab -->
+    <link rel="icon" href="favicon.png" type="image/x-icon" />
+
+  <!-- Material Icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@32,400,0,0" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <aside id="chat-sidebar" class="chat-sidebar fixed top-0 left-0 h-full w-64 bg-surface text-white p-4 overflow-y-auto shadow-lg z-20">
+      <h2 class="text-xl font-bold mb-4">Saved Chats</h2>
+      <button id="new-chat-btn" class="new-chat-btn">+ New Chat</button>
+      <ul id="saved-chats-list" class="space-y-2"></ul>
+    </aside>
+
+    <!-- Header -->
+    <header class="app-header flex justify-between items-center">
+      <div class="flex items-center gap-3">
+        <div>
+          <h1 class="heading">Hello, there</h1>
+          <h5 class="sub-heading">How can I help you today?</h5>
+        </div>
+      </div>
+
+      <!-- Login / User Info -->
+      <div id="auth-container" class="flex items-center gap-4">
+        <button id="login-btn" class="material-symbols-rounded cursor-pointer" title="Login with Google">
+          login
+        </button>
+        <div id="user-info" class="hidden items-center gap-2">
+          <img id="user-photo" src="" alt="User Photo" class="rounded-full w-10 h-10" />
+          <span id="user-name" class="text-white font-semibold"></span>
+          <button id="logout-btn" class="material-symbols-rounded cursor-pointer text-red-400" title="Logout">
+            logout
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Suggestions -->
+    <ul class="suggestions">
+      <li class="suggestions-item">
+        <p class="text">Design a home office setup for remote work under $500.</p>
+        <span class="icon material-symbols-rounded">draw</span>
+      </li>
+      <li class="suggestions-item">
+        <p class="text">How can I level up my web development expertise in 2025?</p>
+        <span class="icon material-symbols-rounded">lightbulb</span>
+      </li>
+      <li class="suggestions-item">
+        <p class="text">Suggest some useful tools for debugging JavaScript code.</p>
+        <span class="icon material-symbols-rounded">explore</span>
+      </li>
+      <li class="suggestions-item">
+        <p class="text">Create a React JS component for the simple todo list app.</p>
+        <span class="icon material-symbols-rounded">code_blocks</span>
+      </li>
+    </ul>
+
+    <!-- Chat Output -->
+    <div class="chats-container"></div>
+
+    <!-- Prompt Input Section -->
+    <div class="prompt-container">
+      <div class="prompt-wrapper">
+        <form action="#" class="prompt-form">
+          <input type="text" placeholder="Ask Gemini" class="prompt-input" required />
+          <div class="prompt-actions">
+            <div class="file-upload-wrapper">
+              <img src="#" class="file-preview" />
+              <input id="file-input" type="file" accept="image/*, .pdf, .txt, .csv" hidden />
+              <button type="button" class="file-icon material-symbols-rounded">description</button>
+              <button id="cancel-file-btn" type="button" class="material-symbols-rounded">close</button>
+              <button id="add-file-btn" type="button" class="material-symbols-rounded">attach_file</button>
+            </div>
+            <button id="stop-response-btn" type="button" class="material-symbols-rounded">stop_circle</button>
+            <button id="send-prompt-btn" class="material-symbols-rounded">arrow_upward</button>
+          </div>
+        </form>
+
+        <!-- Theme + Delete buttons -->
+        <button id="theme-toggle-btn" class="material-symbols-rounded">light_mode</button>
+        <button id="delete-chats-btn" class="material-symbols-rounded">delete</button>
+      </div>
+      <p class="disclaimer-text">ABHIRU can make mistakes, so double-check it. (Beta testing version)</p>
+    </div>
+  </div>
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+
+  <!-- Firebase Init -->
+  <script src="firebase.js"></script>
+
+  <!-- App Script -->
+  <script src="script.js"></script>
+</body>
+</html>
