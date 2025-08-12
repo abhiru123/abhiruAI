@@ -8,8 +8,7 @@ const themeToggleBtn = document.querySelector("#theme-toggle-btn");
 const savedChatsList = document.getElementById("saved-chats-list");
 const newChatBtn = document.getElementById("new-chat-btn");
 
-const API_KEY = "AIzaSyAfgnVp8l8znpKFeebXKCrrMHpL1U5zleo";
-const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
+const API_URL = "http://127.0.0.1:5001/chat";
 
 let controller, typingInterval;
 const userData = { message: "", file: {} };
